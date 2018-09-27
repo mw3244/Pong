@@ -4,3 +4,7 @@ class Settings():
         self.screen_height = 800
         self.bg_color = (0, 0, 0)
         self.game_speed = .5
+        self.ai_speed = .35
+
+    def game_speed_reset(self):
+        self.game_speed = .5
