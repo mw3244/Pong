@@ -4,7 +4,8 @@ class Settings():
         self.screen_height = 800
         self.bg_color = (0, 0, 0)
         self.game_speed = .5
-        self.ai_speed = .35
+        self.ai_speed = .25
+        self.max_score = 15
 
     def game_speed_reset(self):
         self.game_speed = .5

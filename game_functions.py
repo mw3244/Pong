@@ -1,5 +1,6 @@
 import sys
 import pygame
+import time
 
 def check_events(screen, paddle1, paddleT, paddleB):
     for event in pygame.event.get():
@@ -57,8 +58,30 @@ def update_screen(game_settings, screen, score, paddle1, paddle2, ball, paddleT,
 
     screen.blit(score.left_score_label, (game_settings.screen_width/2 - 140, 40))
     screen.blit(score.right_score_label, (game_settings.screen_width/2 + 80, 40))
+    screen.blit(score.max_score_label, (game_settings.screen_width / 2 - 60, 120))
+
     
     pygame.display.flip()
+
+    if score.left_score >= 15:
+        score.left_score_label = score.score_font.render("WIN", True, (255, 255, 255))
+        while True:
+            screen.blit(score.left_score_label, (game_settings.screen_width / 4, game_settings.screen_height / 2))
+            pygame.display.flip()
+            time.sleep(5)
+            return False
+
+
+
+    if score.right_score >= 15:
+        score.right_score_label = score.score_font.render("WIN", True, (255, 255, 255))
+        while True:
+            screen.blit(score.right_score_label, (game_settings.screen_width * .65, game_settings.screen_height / 2))
+            pygame.display.flip()
+            time.sleep(5)
+            return False
+
+    return True
 
 def update_menu_screen(game_settings, screen, button, title):
     screen.fill(game_settings.bg_color)
